@@ -10,7 +10,7 @@ export const profile = {
   name: "Ebunoluwa Amoo",
   title: "Software Engineer",
   heroBlurb:
-    "Ebunoluwa Amoo is a penultimate-year Systems Engineering student, with a background in Computer Science and experience in Software Engineering.",
+    "Ebunoluwa Amoo is a penultimate-year Systems Engineering student, with a degree in Computer Science and experience in Software Engineering.",
   location: "Lagos, Nigeria",
   email: "ebunoluwaamoo@gmail.com",
   phone: "+234-701-514-7567",
@@ -24,10 +24,121 @@ export const about = {
   intro:
     "I build with intention. Creating technology that brings people closer, solves real problems, and sparks lasting impact.",
   photos: [
-    { src: "/about/photo-1.jpg", alt: "Presenting a project to classmates in a lecture room" },
-    { src: "/about/photo-2.jpg", alt: "Presenting a coding project on a projector screen" },
-    { src: "/about/photo-3.jpg", alt: "Receiving an award on stage at African Leadership University" },
-    { src: "/about/photo-4.jpg", alt: "At a community event" },
+    {
+      type: "image",
+      src: "/about/pic-1.jpg",
+      alt: "Presenting a project to classmates in a lecture room",
+    },
+    {
+      type: "image",
+      src: "/about/pic-2.jpg",
+      alt: "Presenting a coding project on a projector screen",
+    },
+    {
+      type: "image",
+      src: "/about/pic-3.jpg",
+      alt: "Receiving an award on stage at African Leadership University",
+    },
+    {
+      type: "image",
+      src: "/about/pic-4.jpg",
+      alt: "At a community event",
+    },
+    {
+      type: "video",
+      src: "/about/vid-1.mp4",
+      alt: "At a community event",
+    },
+    {
+      type: "image",
+      src: "/about/pic-5.jpg",
+      alt: "Presenting a project to classmates in a lecture room",
+    },
+    {
+      type: "image",
+      src: "/about/pic-6.jpg",
+      alt: "Presenting a coding project on a projector screen",
+    },
+        {
+      type: "image",
+      src: "/about/pic-7.jpg",
+      alt: "Presenting a coding project on a projector screen",
+    },
+    {
+      type: "image",
+      src: "/about/pic-9.jpg",
+      alt: "Receiving an award on stage at African Leadership University",
+    },
+    {
+      type: "image",
+      src: "/about/pic-8.jpg",
+      alt: "At a community event",
+    },
+    {
+      type: "video",
+      src: "/about/vid-2.mp4",
+      alt: "At a community event",
+    },
+    {
+      type: "image",
+      src: "/about/pic-10.jpg",
+      alt: "Presenting a project to classmates in a lecture room",
+    },
+    {
+      type: "image",
+      src: "/about/pic-11.jpg",
+      alt: "Presenting a coding project on a projector screen",
+    },
+        {
+      type: "image",
+      src: "/about/pic-12.jpg",
+      alt: "Presenting a coding project on a projector screen",
+    },
+    {
+      type: "image",
+      src: "/about/pic-13.jpg",
+      alt: "At a community event",
+    },
+    {
+      type: "video",
+      src: "/about/vid-3.mp4",
+      alt: "At a community event",
+    },
+    {
+      type: "image",
+      src: "/about/pic-15.jpg",
+      alt: "Presenting a project to classmates in a lecture room",
+    },
+    {
+      type: "image",
+      src: "/about/pic-16.jpg",
+      alt: "Presenting a coding project on a projector screen",
+    },
+    {
+      type: "image",
+      src: "/about/pic-17.jpg",
+      alt: "Receiving an award on stage at African Leadership University",
+    },
+    {
+      type: "image",
+      src: "/about/pic-18.jpg",
+      alt: "At a community event",
+    },
+    {
+      type: "image",
+      src: "/about/pic-19.jpg",
+      alt: "At a community event",
+    },
+    {
+      type: "image",
+      src: "/about/pic-14.jpg",
+      alt: "At a community event",
+    },
+        {
+      type: "image",
+      src: "/about/pic-20.jpg",
+      alt: "At a community event",
+    },
   ],
   sections: [
     {
@@ -40,11 +151,11 @@ export const about = {
     },
     {
       heading: "Where I Am",
-      body: "I'm currently pursuing a degree in Systems Engineering at the University of Lagos and hold a Higher Diploma in Computer Science from Kibo School. Alongside this, I'm building Ile-Alayo, a community initiative creating spaces of joy and belonging for Nigeria's older generation. Inspired by inter-generational storytelling and shared culture, it's a project close to my heart.",
+      body: "I'm currently pursuing a degree in Systems Engineering at the University of Lagos and hold a Higher Diploma in Computer Science from Kibo School. Alongside my studies, I'm working on Kàwé, an EdTech platform designed to make learning more interactive, engaging, and accessible for children. It's a project that brings together my interest in technology, education, and building things that can make a meaningful difference.",
     },
     {
       heading: "When I'm Not Working",
-      body: "You'll find me contributing to communities I'm part of or volunteering on projects that resonate with my values. I also write about faith, growth, and creativity on Medium and Substack, where I reflect on the quieter lessons that shape how we live and build.",
+      body: "You'll find me volunteering, reading fiction, enjoying good music or watching kdramas. I also write about my faith, growth, and journey on Medium and Substack. To follow along with my career journey, you can subscribe to 'Corporate Ebun' on Substack.",
     },
   ],
 };
@@ -58,7 +169,7 @@ export const experience = [
      "Develop and maintain scalable backend APIs using Node.js, TypeScript, and PostgreSQL.",
      "Improve backend performance through SQL optimization and efficient database design.",
      "Implement secure authentication and authorization systems.",
-      "Build and maintain responsive React and React Native features",
+      "Build and maintain responsive React features",
       "Collaborate in Agile teams through code reviews, sprint planning, and technical discussions."
     ],
   },
@@ -213,9 +324,9 @@ export const awards = [
 
 // PLACEHOLDER CONTENT — replace name/role/quote with real testimonials before launch.
 export const testimonials = [
-  { avatar: "/about/photo-1.jpg", name: "Add a name", role: "Add their role & company", quote: "Replace this with a real testimonial before this section goes live." },
-  { avatar: "/about/photo-1.jpg", name: "Add a name", role: "Add their role & company", quote: "Replace this with a real testimonial before this section goes live." },
-  { avatar: "/about/photo-1.jpg", name: "Add a name", role: "Add their role & company", quote: "Replace this with a real testimonial before this section goes live." },
+  { avatar: "/testimonial/test-2.jpeg", name: "Oluwaseun Hamzat ", role: "Technology/Startup Ecosystem Developer", quote: `Ebun is an absolute joy to work with. She is highly conscientious and has all the makings of a great leader. Her natural curiosity and eagerness to take on new responsibilities make her an invaluable team member. She is easily the go-to person for her colleagues, always ready to lend a hand and offer support...` },
+  { avatar: "/testimonial/test-3.jpeg", name: "Tomeka Morrison", role: "Data Analytics", quote: "I had the pleasure of working with Ebunoluwa Amoo during her time as a development intern at Flexie, where she played a key role in strengthening our app’s backend infrastructure and improving the connection between our user-facing platform and internal systems." },
+  { avatar: "/testimonial/test-1.jpeg", name: "David Cubrilla", role: "Chief Technology Officer at Flexie Inc", quote: "Since joining Flexie's Tech Team, she has been instrumental in launching key features and enabling other members of Flexie. Whether it's tackling complex problems or mentoring others, Ebun brings her A-game every single day. Any tech team would be lucky to have Ebun!" },
 ];
 
 export type Project = {

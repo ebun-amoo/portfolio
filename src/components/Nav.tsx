@@ -18,7 +18,7 @@ const navLinks = [
   },
   {
     label: "Contact",
-    href: `mailto:${profile.email}`,
+    href: `https://calendly.com/ebunoluwaamoo/let-s-connect`,
     external: true,
   },
 ];

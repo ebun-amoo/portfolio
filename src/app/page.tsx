@@ -56,7 +56,7 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-6 py-16">
           <Testimonials />
           <Link
-          href="/about"
+          href="https://calendly.com/ebunoluwaamoo/let-s-connect"
           className="inline-block mt-6 rounded-md bg-nav text-nav-foreground px-5 py-2.5 text-sm font-medium hover:opacity-90 transition-opacity focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-nav"
         >
           <div className="flex items-center gap-2">

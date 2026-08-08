@@ -16,7 +16,7 @@ export default function Testimonials() {
               <p className="font-medium">{t.name}</p>
               <p className="text-xs text-nav-foreground/70 mb-3">{t.role}</p>
             </div>
-            <p className="text-sm leading-relaxed text-nav-foreground/90">&ldquo;{t.quote}&rdquo;</p>
+            <p className="text-sm leading-relaxed text-nav-foreground/90 italic">&ldquo;{t.quote}&rdquo;</p>
           </div>
         ))}
       </div>
