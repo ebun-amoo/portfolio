@@ -45,11 +45,6 @@ export const about = {
       alt: "At a community event",
     },
     {
-      type: "video",
-      src: "/about/vid-1.mp4",
-      alt: "At a community event",
-    },
-    {
       type: "image",
       src: "/about/pic-5.jpg",
       alt: "Presenting a project to classmates in a lecture room",
@@ -59,15 +54,10 @@ export const about = {
       src: "/about/pic-6.jpg",
       alt: "Presenting a coding project on a projector screen",
     },
-        {
+    {
       type: "image",
       src: "/about/pic-7.jpg",
       alt: "Presenting a coding project on a projector screen",
-    },
-    {
-      type: "image",
-      src: "/about/pic-9.jpg",
-      alt: "Receiving an award on stage at African Leadership University",
     },
     {
       type: "image",
@@ -75,70 +65,41 @@ export const about = {
       alt: "At a community event",
     },
     {
-      type: "video",
-      src: "/about/vid-2.mp4",
-      alt: "At a community event",
+      type: "image",
+      src: "/about/pic-9.jpg",
+      alt: "Presenting a project to classmates in a lecture room",
     },
     {
       type: "image",
       src: "/about/pic-10.jpg",
-      alt: "Presenting a project to classmates in a lecture room",
+      alt: "Presenting a coding project on a projector screen",
     },
+    // {
+    //   type: "video",
+    //   src: "/about/vid-1.mp4",
+    //   poster: "/about/vid-1-poster.jpg",
+    //   alt: "At a community event",
+    // },
     {
       type: "image",
       src: "/about/pic-11.jpg",
       alt: "Presenting a coding project on a projector screen",
     },
-        {
+    {
       type: "image",
       src: "/about/pic-12.jpg",
-      alt: "Presenting a coding project on a projector screen",
+      alt: "At a community event",
     },
     {
       type: "image",
       src: "/about/pic-13.jpg",
-      alt: "At a community event",
-    },
-    {
-      type: "video",
-      src: "/about/vid-3.mp4",
-      alt: "At a community event",
-    },
-    {
-      type: "image",
-      src: "/about/pic-15.jpg",
       alt: "Presenting a project to classmates in a lecture room",
     },
     {
       type: "image",
-      src: "/about/pic-16.jpg",
-      alt: "Presenting a coding project on a projector screen",
-    },
-    {
-      type: "image",
-      src: "/about/pic-17.jpg",
-      alt: "Receiving an award on stage at African Leadership University",
-    },
-    {
-      type: "image",
-      src: "/about/pic-18.jpg",
-      alt: "At a community event",
-    },
-    {
-      type: "image",
-      src: "/about/pic-19.jpg",
-      alt: "At a community event",
-    },
-    {
-      type: "image",
       src: "/about/pic-14.jpg",
-      alt: "At a community event",
-    },
-        {
-      type: "image",
-      src: "/about/pic-20.jpg",
-      alt: "At a community event",
-    },
+      alt: "Presenting a coding project on a projector screen",
+    }
   ],
   sections: [
     {
@@ -329,53 +290,124 @@ export const testimonials = [
   { avatar: "/testimonial/test-1.jpeg", name: "David Cubrilla", role: "Chief Technology Officer at Flexie Inc", quote: "Since joining Flexie's Tech Team, she has been instrumental in launching key features and enabling other members of Flexie. Whether it's tackling complex problems or mentoring others, Ebun brings her A-game every single day. Any tech team would be lucky to have Ebun!" },
 ];
 
+export type ProjectStatus = "Ongoing" | "Completed" | "In progress";
+
 export type Project = {
   slug: string;
   name: string;
+  status: ProjectStatus;
   summary: string;
   description: string;
   stack: string[];
-  links?: { label: string; href: string }[];
+  links: {
+    label: string;
+    href: string;
+  }[];
 };
 
 export const projects: Project[] = [
   {
-    slug: "flexie-mobile-app",
-    name: "Flexie Mobile App",
-    summary: "Implemented and tested APIs that improved data retrieval speeds by 25% and reduced backend errors by 30%.",
+    slug: "flexie-account-dashboard",
+    name: "Flexie Account Dashboard",
+    status: "Ongoing",
+    summary:
+      "Own and evolve Flexie's account dashboard, improving account management, documents, referrals, and the overall user experience.",
     description:
-      "Worked on the mobile app's backend integration layer, designing and testing REST APIs that materially improved data retrieval performance and reduced backend error rates. Collaborated closely with frontend engineers to make sure API contracts matched real UI needs.",
-    stack: ["React Native", "Node.js", "PostgreSQL", "Jest"],
-    links: [],
+      "Own the development and ongoing improvement of Flexie's Account Dashboard across frontend and backend integration. Built account and profile management flows, a user document management system, and a revamped referral experience, while also developing reusable responsive components, integrating APIs, and implementing localization and language switching. These improvements have made account management more intuitive and given users a more consistent experience across the platform.",
+    stack: ["React", "TypeScript", "Tailwind CSS", "Node.js", "PostgreSQL"],
+    links: [{
+      label: "Live App",
+      href: "https://user-account.goflexie.com",
+    }],
   },
+
   {
     slug: "flexie-authentication-app",
     name: "Flexie Authentication App",
+    status: "Completed",
     summary:
-      "Developed a standalone authentication system with email and phone number verification, ensuring secure and reliable access for Flexie users.",
+      "Built a centralized authentication system that provides secure email and phone verification across Flexie's products.",
     description:
-      "Built a standalone authentication service supporting both email and phone number verification flows, used across Flexie's product surface. Focused on secure token handling, clear error states, and a verification flow that stayed simple for the end user.",
-    stack: ["Node.js", "Express", "PostgreSQL", "JWT"],
+      "Built a centralized authentication system across the frontend, backend, and database layers, supporting login, OTP verification, and email and phone number updates. Designed verification flows, database structures, error handling, and secure authentication logic, then integrated the system across Flexie's web and mobile products. This created a more consistent authentication experience and a shared foundation for user identity management.",
+    stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
+    links: [
+      {
+        label: "Live App",
+        href: "https://auth.goflexie.com/",
+      },
+    ],
+  },
+
+  {
+    slug: "flexie-mobile-app",
+    name: "Flexie Mobile App",
+    status: "Ongoing",
+    summary:
+      "Built and tested backend APIs supporting the redesigned Flexie mobile experience.",
+    description:
+      "Developed and tested REST APIs supporting the redesigned Flexie mobile application, working across Node.js and PostgreSQL to improve validation, error handling, and data consistency. Documented API contracts with Swagger and wrote unit tests for major API flows, while collaborating with frontend engineers to ensure reliable integration. This provided the mobile team with a more stable and predictable backend foundation.",
+    stack: ["React Native", "Expo", "Node.js", "PostgreSQL", "Jest"],
+    links: [{
+      label: "Live App",
+      href: "https://goflexie.onelink.me/qghS/web"
+    }],
+  },
+
+  {
+    slug: "flexie-shifts-web-app",
+    name: "Flexie Shifts Web App",
+    status: "Ongoing",
+    summary:
+      "Helped redesign Flexie's shift management platform, improving operational workflows for managers.",
+    description:
+      "Contributed across the frontend and backend of Flexie's Shift Manager application, working on complex operational workflows used to manage Flexers, locations, and shift assignments. Built reusable React components, introduced Zustand for predictable client-side state management, developed supporting APIs, and implemented role-based access control. These changes made the application more responsive and reliable while simplifying key manager workflows.",
+    stack: ["React", "TypeScript", "Zustand", "Node.js", "PostgreSQL"],
+    links: [
+      {
+        label: "Live App",
+        href: "https://shifts.goflexie.com/",
+      },
+    ],
+  },
+
+  {
+    slug: "automated-flexer-screening",
+    name: "Automated Flexer Screening with AI Agents",
+    status: "Completed",
+    summary:
+      "Built an AI-powered screening workflow that automates applicant interviews and evaluates responses against structured criteria.",
+    description:
+      "Designed and implemented an automated screening workflow using AI agents to conduct dynamic applicant interviews and evaluate responses against structured reliability criteria. Built the backend workflow with Node.js and PostgreSQL, integrated the OpenAI API, and designed the system to store only the information needed for downstream decisions. The automation reduced manual screening effort and created a more consistent evaluation process.",
+    stack: ["Node.js", "OpenAI API", "PostgreSQL"],
     links: [],
   },
+
   {
-    slug: "flexie-authentication-ap",
-    name: "Flexie Authentication App",
+    slug: "kawe",
+    name: "Kàwé",
+    status: "In progress",
     summary:
-      "Developed a standalone authentication system with email and phone number verification, ensuring secure and reliable access for Flexie users.",
+      "An EdTech platform I'm developing to make learning more interactive, personalized, and accessible for children.",
     description:
-      "Built a standalone authentication service supporting both email and phone number verification flows, used across Flexie's product surface. Focused on secure token handling, clear error states, and a verification flow that stayed simple for the end user.",
-    stack: ["Node.js", "Express", "PostgreSQL", "JWT"],
+      "Kàwé is an EdTech product I'm currently developing around the idea that learning should be engaging as well as effective. I'm shaping the product experience around interactive quizzes, personalization, gamification, leaderboards, and rewards, with a focus on making quality learning experiences more accessible to children. The project brings together my interests in software, education, product design, and building technology with meaningful real-world impact.",
+    stack: ["Next.js", "TypeScript", "React", "Tailwind CSS"],
     links: [],
   },
+
   {
-    slug: "flexie-authentication-appz",
-    name: "Flexie Authentication App",
+    slug: "whatsapp-birthday-bot",
+    name: "WhatsApp Birthday Bot",
+    status: "Completed",
     summary:
-      "Developed a standalone authentication system with email and phone number verification, ensuring secure and reliable access for Flexie users.",
+      "Built a scheduled messaging bot that automatically sends birthday wishes to specified WhatsApp groups.",
     description:
-      "Built a standalone authentication service supporting both email and phone number verification flows, used across Flexie's product surface. Focused on secure token handling, clear error states, and a verification flow that stayed simple for the end user.",
-    stack: ["Node.js", "Express", "PostgreSQL", "JWT"],
-    links: [],
-  }
+      "Built a personal automation tool using Node.js, whatsapp-web.js, and node-cron to schedule and send birthday messages to WhatsApp groups. Implemented session handling, logging, environment configuration, and data persistence while exploring the technical and compliance limitations of WhatsApp automation. The project gave me practical experience building scheduled background processes and working with a third-party messaging platform.",
+    stack: ["Node.js", "whatsapp-web.js", "node-cron", "Winston"],
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/ebun-amoo/whatsapp-birthday-bot",
+      },
+    ],
+  },
 ];

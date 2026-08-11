@@ -1,14 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #dcdad7;
-  --foreground: #171412;
-  --nav: #121212;
-  --nav-foreground: #f5f4f2;
-  --accent-mauve: #a99693;
-  --accent-dark: #8b7d7a;
-  --button-dark: #3b2e2e;
-  --border-subtle: #b8b5b1;
+  --background: #f6f4ec;     
+  --foreground: #172119;      
+  --nav: #0f1f17;     
+  --nav-foreground: #f6f4ec;
+  --accent-mauve: #6fa98a;    
+  --accent-dark: #1f5c3f;    
+  --button-dark: #123324;     
+  --border-subtle: #ddd5c2;  
+  --accent-pop: #ff8a4c;      
+
   --font-display: Georgia, "Times New Roman", serif;
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
@@ -22,6 +24,7 @@
   --color-accent-dark: var(--accent-dark);
   --color-button-dark: var(--button-dark);
   --color-border-subtle: var(--border-subtle);
+  --color-accent-pop: var(--accent-pop);
   --font-display: var(--font-display);
   --font-sans: var(--font-sans);
 }
@@ -49,5 +52,25 @@ body {
 }
 
 .marquee-track {
-  animation: marquee var(--marquee-duration) linear infinite;
+  animation: marquee var(--marquee-duration, 32s) linear infinite;
+  width: max-content;
+}
+
+/* Faint dot grid */
+.bg-pattern-dots {
+  background-color: var(--background);
+  background-image: radial-gradient(rgba(31, 92, 63, 0.5) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Faint diagonal lines */
+.bg-pattern-lines {
+  background-color: var(--background);
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(31, 92, 63, 0.07) 0px,
+    rgba(31, 92, 63, 0.07) 2px,
+    transparent 2px,
+    transparent 14px
+  );
 }

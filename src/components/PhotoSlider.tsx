@@ -3,8 +3,8 @@
 import { useEffect, useRef } from "react";
 import { about } from "@/content/data";
 
-const NORMAL_RATE = 2;
-const SLOW_RATE = 0.5;
+const NORMAL_RATE = 1; 
+const SLOW_RATE = 0.25;
 const SET_REPEATS = 4;
 const SPEED = 80;
 
@@ -19,24 +19,26 @@ export default function PhotoSlider() {
   };
 
   useEffect(() => {
-    if (!trackRef.current) return;
+    const track = trackRef.current;
+    if (!track) return;
 
-    const distance = trackRef.current.scrollWidth / 2;
-    const duration = distance / SPEED;
+    const recalculate = () => {
+      const distance = track.scrollWidth / 2;
+      const duration = distance / SPEED;
+      track.style.setProperty("--marquee-duration", `${duration}s`);
+    };
 
-    trackRef.current.style.setProperty(
-      "--marquee-duration",
-      `${duration}s`
-    );
+    recalculate();
+
+    const observer = new ResizeObserver(recalculate);
+    observer.observe(track);
+
+    return () => observer.disconnect();
   }, [photos]);
 
   if (photos.length === 0) return null;
 
-  const paddedSet = Array.from(
-    { length: SET_REPEATS },
-    () => photos
-  ).flat();
-
+  const paddedSet = Array.from({ length: SET_REPEATS }, () => photos).flat();
   const track = [...paddedSet, ...paddedSet];
 
   return (
@@ -47,20 +49,20 @@ export default function PhotoSlider() {
       onMouseEnter={() => setRate(SLOW_RATE)}
       onMouseLeave={() => setRate(NORMAL_RATE)}
     >
-      <div
-        ref={trackRef}
-        className="marquee-track flex w-max gap-4"
-      >
-        {track.map((photo, i) =>
-          photo.type === "video" ? (
+      <div ref={trackRef} className="marquee-track flex w-max gap-4">
+        {track.map((photo, i) => {
+          const isRealInstance = i < photos.length; 
+          return photo.type === "video" ? (
             <video
               key={`${photo.src}-${i}`}
-              src={photo.src}
-              autoPlay
+              src={isRealInstance ? photo.src : undefined}
+              // poster={photo.poster} no video file for now
+              autoPlay={isRealInstance}
               muted
               loop
               playsInline
-              aria-hidden={i >= photos.length}
+              preload={isRealInstance ? "auto" : "none"}
+              aria-hidden={!isRealInstance}
               className="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 rounded-2xl object-cover bg-accent-dark/20"
             />
           ) : (
@@ -68,11 +70,11 @@ export default function PhotoSlider() {
               key={`${photo.src}-${i}`}
               src={photo.src}
               alt={photo.alt}
-              aria-hidden={i >= photos.length}
+              aria-hidden={!isRealInstance}
               className="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 rounded-2xl object-cover bg-accent-dark/20"
             />
-          )
-        )}
+          );
+        })}
       </div>
     </div>
   );

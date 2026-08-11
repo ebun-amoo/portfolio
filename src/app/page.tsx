@@ -52,7 +52,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="border-t border-border-subtle">
+      <section className="border-t border-border-subtle bg-pattern-dots">
         <div className="mx-auto max-w-6xl px-6 py-16">
           <Testimonials />
           <Link
