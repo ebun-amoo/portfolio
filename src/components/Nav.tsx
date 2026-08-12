@@ -29,11 +29,13 @@ export default function Nav() {
   return (
     <header className="bg-forest text-cream fixed top-0 left-0 right-0 z-50 border-b border-white/10">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link
-          href="/"
-          aria-label="Home"
-          className="block h-10 w-10 rounded-full bg-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
-        />
+      <Link
+        href="/"
+        aria-label="Home"
+        className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gold text-xl font-display text-cream transition-all hover:scale-105 hover:bg-white/5"
+      >
+        <span className="-translate-y-px">Ẹ</span>
+      </Link>
 
         {/* Desktop */}
         <nav
