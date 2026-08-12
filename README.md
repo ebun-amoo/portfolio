@@ -11,4 +11,4 @@ npm run dev
 
 Then open http://localhost:3000
 
-## [Live](ebunamoo.vercel.app)
+## [Live](https://ebunamoo.vercel.app)
