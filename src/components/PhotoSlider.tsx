@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { about } from "@/content/data";
 
-const NORMAL_RATE = 1; 
+const NORMAL_RATE = 1;
 const SLOW_RATE = 0.25;
 const SET_REPEATS = 4;
 const SPEED = 80;
@@ -51,7 +51,7 @@ export default function PhotoSlider() {
     >
       <div ref={trackRef} className="marquee-track flex w-max gap-4">
         {track.map((photo, i) => {
-          const isRealInstance = i < photos.length; 
+          const isRealInstance = i < photos.length;
           return photo.type === "video" ? (
             <video
               key={`${photo.src}-${i}`}
@@ -63,7 +63,7 @@ export default function PhotoSlider() {
               playsInline
               preload={isRealInstance ? "auto" : "none"}
               aria-hidden={!isRealInstance}
-              className="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 rounded-2xl object-cover bg-accent-dark/20"
+              className="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 rounded-2xl object-cover bg-sage/25"
             />
           ) : (
             <img
@@ -71,7 +71,7 @@ export default function PhotoSlider() {
               src={photo.src}
               alt={photo.alt}
               aria-hidden={!isRealInstance}
-              className="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 rounded-2xl object-cover bg-accent-dark/20"
+              className="h-64 sm:h-80 md:h-96 w-auto flex-shrink-0 rounded-2xl object-cover bg-sage/25 border border-line"
             />
           );
         })}

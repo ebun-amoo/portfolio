@@ -5,9 +5,9 @@ export default function ProjectCard({ project }: { project: Project }) {
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className="shadow-md group block rounded-2xl border border-border-subtle bg-accent-dark/90 p-4 hover:bg-accent-dark transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+      className="card card-hover group block p-5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tangerine"
     >
-      <div className="aspect-video rounded-lg overflow-hidden bg-background/80 mb-4">
+      <div className="aspect-video rounded-xl overflow-hidden bg-sage/15 mb-5">
         <img
           src={project.image}
           alt=""
@@ -16,27 +16,32 @@ export default function ProjectCard({ project }: { project: Project }) {
       </div>
 
       <div className="flex flex-col items-start justify-between gap-3">
-        <h3 className="font-display text-lg font-semibold text-nav-foreground">
+        <h3 className="font-display text-lg font-semibold text-forest">
           {project.name}
         </h3>
 
-        <span className="shrink-0 text-xs rounded-full bg-accent-mauve/90 text-nav-foreground px-2.5 py-1">
+        <span
+          className={`tag shrink-0 ${
+            project.status === "Ongoing"
+              ? "tag-sage"
+              : project.status === "Completed"
+                ? "tag-gold"
+                : "tag-orange"
+          }`}
+        >
           {project.status}
         </span>
       </div>
 
-      <p className="mt-3 text-sm leading-relaxed text-nav-foreground/80 line-clamp-2">
+      <p className="mt-3 text-sm leading-relaxed text-ink-soft line-clamp-2">
         {project.summary}
       </p>
 
-      <hr className="my-4 border-nav-foreground/30" />
+      <hr className="my-4 border-line" />
 
       <div className="flex flex-wrap gap-2">
         {project.stack.map((tech) => (
-          <span
-            key={tech}
-            className="text-xs rounded-full bg-background/80 text-foreground px-2.5 py-1"
-          >
+          <span key={tech} className="tag">
             {tech}
           </span>
         ))}

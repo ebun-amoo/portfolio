@@ -1,38 +1,56 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f6f4ec;     
-  --foreground: #172119;      
-  --nav: #0f1f17;     
-  --nav-foreground: #f6f4ec;
-  --accent-mauve: #6fa98a;    
-  --accent-dark: #1f5c3f;    
-  --button-dark: #123324;     
-  --border-subtle: #ddd5c2;  
-  --accent-pop: #ff8a4c;      
+  --cream: #f8f3e7;         /* page background */
+  --paper: #fffdf7;         /* card surface */
+  --ink: #1e2c22;           /* primary text */
+  --forest: #143326;        /* deep green — primary identity */
+  --pine: #28553b;          /* forest green — hover / supporting */
+  --sage: #4f7a5e;          /* muted green — labels & secondary accents */
+  --rust: #bf2819;          /* burnt red — rare emphasis */
+  --tangerine: #ef7700;     /* warm orange — interaction & energy */
+  --gold: #efc46c;          /* soft gold — learning & warmth */
+  --line: #e7dec9;          /* hairline borders */
+
+  --ink-soft: color-mix(in srgb, var(--ink) 68%, transparent);
+  --ink-faint: color-mix(in srgb, var(--ink) 48%, transparent);
 
   --font-display: Georgia, "Times New Roman", serif;
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --shadow-card: 0 1px 2px rgb(64 48 24 / 0.05), 0 12px 32px -20px rgb(64 48 24 / 0.18);
+  --shadow-card-hover: 0 2px 6px rgb(64 48 24 / 0.06), 0 24px 48px -24px rgb(64 48 24 / 0.28);
+  --shadow-btn: 0 10px 24px -12px rgb(20 51 38 / 0.45);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-nav: var(--nav);
-  --color-nav-foreground: var(--nav-foreground);
-  --color-accent-mauve: var(--accent-mauve);
-  --color-accent-dark: var(--accent-dark);
-  --color-button-dark: var(--button-dark);
-  --color-border-subtle: var(--border-subtle);
-  --color-accent-pop: var(--accent-pop);
+  --color-cream: var(--cream);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-forest: var(--forest);
+  --color-pine: var(--pine);
+  --color-sage: var(--sage);
+  --color-rust: var(--rust);
+  --color-tangerine: var(--tangerine);
+  --color-gold: var(--gold);
+  --color-line: var(--line);
   --font-display: var(--font-display);
   --font-sans: var(--font-sans);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
+@layer base {
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--font-sans);
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--gold) 55%, var(--cream));
+    color: var(--forest);
+  }
 }
 
 /* Respect reduced-motion preferences site-wide */
@@ -45,32 +63,200 @@ body {
   }
 }
 
-/* Infinite auto-scrolling photo filmstrip (About page) */
+/* ============================================
+   Motion
+   ============================================ */
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
 
-.marquee-track {
-  animation: marquee var(--marquee-duration, 32s) linear infinite;
-  width: max-content;
-}
+@layer components {
+  /* ---- Editorial section dividers (fade at edges, warm glow at center) ---- */
+  .divider-top,
+  .divider-bottom {
+    position: relative;
+  }
+  .divider-top::before,
+  .divider-bottom::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+      transparent,
+      var(--line) 18%,
+      color-mix(in srgb, var(--gold) 55%, var(--line)) 50%,
+      var(--line) 82%,
+      transparent);
+  }
+  .divider-top::before { top: 0; }
+  .divider-bottom::after { bottom: 0; }
 
-/* Faint dot grid */
-.bg-pattern-dots {
-  background-color: var(--background);
-  background-image: radial-gradient(rgba(31, 92, 63, 0.5) 1px, transparent 1px);
-  background-size: 22px 22px;
-}
+  /* ---- Section headings ---- */
+  .heading-section {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--forest);
+  }
+  .heading-accent {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.6rem;
+  }
+  .heading-accent::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 3rem;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--gold), color-mix(in srgb, var(--tangerine) 65%, var(--gold)));
+    opacity: 0.85;
+  }
 
-/* Faint diagonal lines */
-.bg-pattern-lines {
-  background-color: var(--background);
-  background-image: repeating-linear-gradient(
-    135deg,
-    rgba(31, 92, 63, 0.07) 0px,
-    rgba(31, 92, 63, 0.07) 2px,
-    transparent 2px,
-    transparent 14px
-  );
+  /* ---- Editorial eyebrow labels ---- */
+  .label-eyebrow {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--sage);
+  }
+
+  /* ---- Links ---- */
+  .link-editorial {
+    color: var(--pine);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    text-decoration-color: color-mix(in srgb, var(--pine) 35%, transparent);
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  }
+  .link-editorial:hover {
+    color: var(--forest);
+    text-decoration-color: var(--gold);
+  }
+
+  /* ---- Buttons ---- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1;
+    padding: 0.7rem 1.6rem;
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease,
+                border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .btn:focus-visible {
+    outline: 2px solid var(--tangerine);
+    outline-offset: 3px;
+  }
+  .btn-primary {
+    background: var(--forest);
+    color: var(--cream);
+    box-shadow: var(--shadow-btn);
+  }
+  .btn-primary:hover {
+    background: var(--pine);
+    transform: translateY(-1px);
+    box-shadow: 0 14px 30px -14px rgb(20 51 38 / 0.55);
+  }
+  .btn-accent {
+    background: var(--gold);
+    color: var(--forest);
+  }
+  .btn-accent:hover {
+    background: color-mix(in srgb, var(--gold) 82%, var(--tangerine));
+    transform: translateY(-1px);
+    box-shadow: 0 12px 26px -14px rgb(239 196 108 / 0.9);
+  }
+  .btn-outline {
+    border: 1.5px solid color-mix(in srgb, var(--pine) 40%, transparent);
+    color: var(--pine);
+    background: transparent;
+  }
+  .btn-outline:hover {
+    background: color-mix(in srgb, var(--sage) 10%, transparent);
+    border-color: var(--sage);
+    color: var(--forest);
+    transform: translateY(-1px);
+  }
+
+  /* ---- Cards ---- */
+  .card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 1.25rem;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--gold) 55%, var(--line));
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  /* ---- Tags ---- */
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    line-height: 1;
+    padding: 0.38rem 0.8rem;
+    border: 1px solid color-mix(in srgb, var(--sage) 32%, transparent);
+    background: color-mix(in srgb, var(--sage) 9%, var(--paper));
+    color: var(--pine);
+    white-space: nowrap;
+  }
+  .tag-gold {
+    border-color: color-mix(in srgb, var(--gold) 55%, transparent);
+    background: color-mix(in srgb, var(--gold) 20%, var(--paper));
+    color: color-mix(in srgb, var(--forest) 88%, #000);
+  }
+  .tag-sage {
+    border-color: color-mix(in srgb, var(--sage) 38%, transparent);
+    background: color-mix(in srgb, var(--sage) 12%, var(--paper));
+    color: var(--pine);
+  }
+  .tag-orange {
+    border-color: color-mix(in srgb, var(--tangerine) 45%, transparent);
+    background: color-mix(in srgb, var(--tangerine) 12%, var(--paper));
+    color: color-mix(in srgb, var(--tangerine) 68%, var(--forest));
+  }
+
+  /* ---- Experience timeline markers ---- */
+  .timeline-item {
+    position: relative;
+  }
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -7px;
+    top: 5px;
+    width: 11px;
+    height: 11px;
+    border-radius: 999px;
+    background: var(--gold);
+    border: 2px solid var(--cream);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--sage) 55%, transparent);
+  }
+
+  /* ---- Photo marquee ---- */
+  .marquee-track {
+    animation: marquee var(--marquee-duration, 32s) linear infinite;
+    width: max-content;
+  }
 }

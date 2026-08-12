@@ -323,22 +323,17 @@ export const projects: Project[] = [
     }],
   },
 
-  {
-    slug: "flexie-authentication-app",
-    name: "Flexie Authentication App",
-    status: "Completed",
+    {
+    slug: "kawe",
+    name: "Kàwé",
+    status: "In progress",
     summary:
-      "Built a centralized authentication system that provides secure email and phone verification across Flexie's products.",
-    image: "/projects/project-2.png",
+      "An EdTech platform I'm developing to make learning more interactive, personalized, and accessible for children.",
+    image: "/projects/project-6.png",
     description:
-      "Built a centralized authentication system across the frontend, backend, and database layers, supporting login, OTP verification, and email and phone number updates. Designed verification flows, database structures, error handling, and secure authentication logic, then integrated the system across Flexie's web and mobile products. This created a more consistent authentication experience and a shared foundation for user identity management.",
-    stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-    links: [
-      {
-        label: "Live App",
-        href: "https://auth.goflexie.com/",
-      },
-    ],
+      "Kàwé is an EdTech product I'm currently developing around the idea that learning should be engaging as well as effective. I'm shaping the product experience around interactive quizzes, personalization, gamification, leaderboards, and rewards, with a focus on making quality learning experiences more accessible to children. The project brings together my interests in software, education, product design, and building technology with meaningful real-world impact.",
+    stack: ["Next.js", "TypeScript", "React", "Tailwind CSS"],
+    links: [],
   },
 
   {
@@ -389,16 +384,21 @@ export const projects: Project[] = [
   },
 
   {
-    slug: "kawe",
-    name: "Kàwé",
-    status: "In progress",
+    slug: "flexie-authentication-app",
+    name: "Flexie Authentication App",
+    status: "Completed",
     summary:
-      "An EdTech platform I'm developing to make learning more interactive, personalized, and accessible for children.",
-    image: "/projects/project-6.png",
+      "Built a centralized authentication system that provides secure email and phone verification across Flexie's products.",
+    image: "/projects/project-2.png",
     description:
-      "Kàwé is an EdTech product I'm currently developing around the idea that learning should be engaging as well as effective. I'm shaping the product experience around interactive quizzes, personalization, gamification, leaderboards, and rewards, with a focus on making quality learning experiences more accessible to children. The project brings together my interests in software, education, product design, and building technology with meaningful real-world impact.",
-    stack: ["Next.js", "TypeScript", "React", "Tailwind CSS"],
-    links: [],
+      "Built a centralized authentication system across the frontend, backend, and database layers, supporting login, OTP verification, and email and phone number updates. Designed verification flows, database structures, error handling, and secure authentication logic, then integrated the system across Flexie's web and mobile products. This created a more consistent authentication experience and a shared foundation for user identity management.",
+    stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
+    links: [
+      {
+        label: "Live App",
+        href: "https://auth.goflexie.com/",
+      },
+    ],
   },
 
   {

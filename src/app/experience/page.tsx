@@ -1,22 +1,29 @@
 import { experience, education, awards } from "@/content/data";
 import SkillsGrid from "@/components/SkillsGrid";
 import CTA from "@/components/cta";
+import PatternAccent from "@/components/PatternAccent";
 
 export const metadata = { title: "Experience — Ebunoluwa Amoo" };
 
 export default function ExperiencePage() {
   return (
     <>
-      <section className="mx-auto max-w-6xl px-6 pb-20 pt-28 sm:pt-32">
-        <h1 className="font-display text-2xl font-semibold mb-8">Work Experience</h1>
+      <section className="relative mx-auto max-w-6xl px-6 pb-20 pt-28 sm:pt-32">
+        <PatternAccent
+          variant="loop"
+          className="-right-8 top-32 hidden md:block"
+          color="var(--sage)"
+          opacity={0.07}
+        />
+        <h1 className="heading-section heading-accent mb-8">Work Experience</h1>
         <ol className="space-y-8">
           {experience.map((job) => (
-            <li key={`${job.company}-${job.role}-${job.period}`} className="border-l-2 border-accent-dark pl-5">
-              <p className="font-display font-semibold">{job.role}</p>
-              <p className="text-sm text-foreground/70 mb-3">
+            <li key={`${job.company}-${job.role}-${job.period}`} className="timeline-item border-l-2 border-sage/40 pl-6">
+              <p className="font-display font-semibold text-forest">{job.role}</p>
+              <p className="text-sm text-ink-soft mb-3">
                 {job.company} &middot; {job.period}
               </p>
-              <ul className="list-disc list-outside pl-5 space-y-1.5 text-foreground/85">
+              <ul className="list-disc list-outside pl-5 space-y-1.5 text-ink/80">
                 {job.impact.map((line, i) => (
                   <li key={i}>{line}</li>
                 ))}
@@ -26,14 +33,14 @@ export default function ExperiencePage() {
         </ol>
       </section>
 
-      <section className="border-t border-border-subtle">
+      <section className="border-t border-line">
         <div className="mx-auto max-w-6xl px-6 py-16">
-          <h2 className="font-display text-xl font-semibold mb-6">Education</h2>
-          <div className="space-y-4">
+          <h2 className="heading-section heading-accent mb-6">Education</h2>
+          <div className="space-y-6">
             {education.map((ed) => (
-              <div key={ed.degree}>
-                <p className="font-medium">{ed.degree}</p>
-                <p className="text-sm text-foreground/70">
+              <div key={ed.degree} className="card p-6">
+                <p className="font-semibold text-forest">{ed.degree}</p>
+                <p className="text-sm text-ink-soft">
                   {ed.school} &middot; {ed.period}
                 </p>
               </div>
@@ -42,20 +49,21 @@ export default function ExperiencePage() {
         </div>
       </section>
 
-      <section className="border-t border-border-subtle">
+      <section className="border-t border-line">
         <div className="mx-auto max-w-6xl px-6 py-16">
-          <h2 className="font-display text-xl font-semibold mb-6">Skills</h2>
+          <h2 className="heading-section heading-accent mb-6">Skills</h2>
           <SkillsGrid />
         </div>
       </section>
 
-      <section className="border-t border-border-subtle">
+      <section className="border-t border-line bg-paper/50">
         <div className="mx-auto max-w-6xl px-6 py-16">
-          <h2 className="font-display text-xl font-semibold mb-6">Leadership &amp; Awards</h2>
-          <ol className="rounded-xl bg-accent-dark text-nav-foreground p-6 space-y-2 list-decimal list-inside">
+          <h2 className="heading-section heading-accent mb-6">Leadership & Awards</h2>
+          <ol className="rounded-2xl bg-forest text-cream p-8 space-y-2.5 list-decimal list-inside">
             {awards.map((award) => (
               <li key={award.title}>
-                <span className="font-medium">{award.title}</span> — {award.org}
+                <span className="font-medium text-gold">{award.title}</span>
+                <span className="text-cream/75"> — {award.org}</span>
               </li>
             ))}
           </ol>

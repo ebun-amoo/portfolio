@@ -27,12 +27,12 @@ export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="bg-nav text-nav-foreground fixed top-0 left-0 right-0 z-50 border-b border-border-subtle">
+    <header className="bg-forest text-cream fixed top-0 left-0 right-0 z-50 border-b border-white/10">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link
           href="/"
           aria-label="Home"
-          className="h-10 w-10 rounded-lg bg-accent-mauve block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-nav-foreground"
+          className="block h-10 w-10 rounded-full bg-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
         />
 
         {/* Desktop */}
@@ -47,10 +47,10 @@ export default function Nav() {
                 href={link.href}
                 target={link.newTab ? "_blank" : undefined}
                 rel={link.newTab ? "noopener noreferrer" : undefined}
-                className="rounded transition-colors hover:text-accent-mauve focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-nav-foreground"
+                className="rounded text-cream/80 transition-colors hover:text-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
               >
                 {link.label === "Contact" ? (
-                  <span className="flex items-center gap-2 p-2 rounded-full bg-white/10 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-nav-foreground">
+                  <span className="flex items-center gap-2 p-2 rounded-full bg-white/10">
                     <FontAwesomeIcon icon={faPhone} className="w-3 h-3" />
                     Let's talk
                   </span>
@@ -62,7 +62,8 @@ export default function Nav() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="rounded transition-colors hover:text-accent-mauve focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-nav-foreground"
+                onClick={() => setIsOpen(false)}
+                className="rounded text-cream/80 transition-colors hover:text-gold"
               >
                 {link.label}
               </Link>
@@ -96,10 +97,10 @@ export default function Nav() {
                   target={link.newTab ? "_blank" : undefined}
                   rel={link.newTab ? "noopener noreferrer" : undefined}
                   onClick={() => setIsOpen(false)}
-                  className="transition-colors hover:text-accent-mauve"
+                  className="text-cream/80 transition-colors hover:text-gold"
                 >
                   {link.label === "Contact" ? (
-                    <span className="flex items-center gap-2 p-2 rounded-full bg-white/10 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-nav-foreground w-fit">
+                    <span className="flex items-center gap-2 p-2 rounded-full bg-white/10 transition-colors hover:bg-gold/20 hover:text-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold">
                       <FontAwesomeIcon icon={faPhone} className="w-3 h-3" />
                       Let's talk
                     </span>
@@ -112,7 +113,7 @@ export default function Nav() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="transition-colors hover:text-accent-mauve"
+                  className="text-cream/80 transition-colors hover:text-gold"
                 >
                   {link.label}
                 </Link>
