@@ -7,7 +7,13 @@ export default function ProjectCard({ project }: { project: Project }) {
       href={`/projects/${project.slug}`}
       className="shadow-md group block rounded-2xl border border-border-subtle bg-accent-dark/90 p-4 hover:bg-accent-dark transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
     >
-      <div className="aspect-video rounded-lg bg-background/80 mb-4" />
+      <div className="aspect-video rounded-lg overflow-hidden bg-background/80 mb-4">
+        <img
+          src={project.image}
+          alt=""
+          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+        />
+      </div>
 
       <div className="flex flex-col items-start justify-between gap-3">
         <h3 className="font-display text-lg font-semibold text-nav-foreground">

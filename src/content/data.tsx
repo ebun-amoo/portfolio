@@ -298,6 +298,7 @@ export type Project = {
   status: ProjectStatus;
   summary: string;
   description: string;
+  image: string;
   stack: string[];
   links: {
     label: string;
@@ -312,6 +313,7 @@ export const projects: Project[] = [
     status: "Ongoing",
     summary:
       "Own and evolve Flexie's account dashboard, improving account management, documents, referrals, and the overall user experience.",
+    image: "/projects/project-1.png",
     description:
       "Own the development and ongoing improvement of Flexie's Account Dashboard across frontend and backend integration. Built account and profile management flows, a user document management system, and a revamped referral experience, while also developing reusable responsive components, integrating APIs, and implementing localization and language switching. These improvements have made account management more intuitive and given users a more consistent experience across the platform.",
     stack: ["React", "TypeScript", "Tailwind CSS", "Node.js", "PostgreSQL"],
@@ -327,6 +329,7 @@ export const projects: Project[] = [
     status: "Completed",
     summary:
       "Built a centralized authentication system that provides secure email and phone verification across Flexie's products.",
+    image: "/projects/project-2.png",
     description:
       "Built a centralized authentication system across the frontend, backend, and database layers, supporting login, OTP verification, and email and phone number updates. Designed verification flows, database structures, error handling, and secure authentication logic, then integrated the system across Flexie's web and mobile products. This created a more consistent authentication experience and a shared foundation for user identity management.",
     stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
@@ -344,6 +347,7 @@ export const projects: Project[] = [
     status: "Ongoing",
     summary:
       "Built and tested backend APIs supporting the redesigned Flexie mobile experience.",
+    image: "/projects/project-3.jpg",
     description:
       "Developed and tested REST APIs supporting the redesigned Flexie mobile application, working across Node.js and PostgreSQL to improve validation, error handling, and data consistency. Documented API contracts with Swagger and wrote unit tests for major API flows, while collaborating with frontend engineers to ensure reliable integration. This provided the mobile team with a more stable and predictable backend foundation.",
     stack: ["React Native", "Expo", "Node.js", "PostgreSQL", "Jest"],
@@ -359,6 +363,7 @@ export const projects: Project[] = [
     status: "Ongoing",
     summary:
       "Helped redesign Flexie's shift management platform, improving operational workflows for managers.",
+    image: "/projects/project-4.png",   
     description:
       "Contributed across the frontend and backend of Flexie's Shift Manager application, working on complex operational workflows used to manage Flexers, locations, and shift assignments. Built reusable React components, introduced Zustand for predictable client-side state management, developed supporting APIs, and implemented role-based access control. These changes made the application more responsive and reliable while simplifying key manager workflows.",
     stack: ["React", "TypeScript", "Zustand", "Node.js", "PostgreSQL"],
@@ -376,6 +381,7 @@ export const projects: Project[] = [
     status: "Completed",
     summary:
       "Built an AI-powered screening workflow that automates applicant interviews and evaluates responses against structured criteria.",
+    image: "/projects/project-5.png",    
     description:
       "Designed and implemented an automated screening workflow using AI agents to conduct dynamic applicant interviews and evaluate responses against structured reliability criteria. Built the backend workflow with Node.js and PostgreSQL, integrated the OpenAI API, and designed the system to store only the information needed for downstream decisions. The automation reduced manual screening effort and created a more consistent evaluation process.",
     stack: ["Node.js", "OpenAI API", "PostgreSQL"],
@@ -388,6 +394,7 @@ export const projects: Project[] = [
     status: "In progress",
     summary:
       "An EdTech platform I'm developing to make learning more interactive, personalized, and accessible for children.",
+    image: "/projects/project-6.png",
     description:
       "Kàwé is an EdTech product I'm currently developing around the idea that learning should be engaging as well as effective. I'm shaping the product experience around interactive quizzes, personalization, gamification, leaderboards, and rewards, with a focus on making quality learning experiences more accessible to children. The project brings together my interests in software, education, product design, and building technology with meaningful real-world impact.",
     stack: ["Next.js", "TypeScript", "React", "Tailwind CSS"],
@@ -400,6 +407,7 @@ export const projects: Project[] = [
     status: "Completed",
     summary:
       "Built a scheduled messaging bot that automatically sends birthday wishes to specified WhatsApp groups.",
+    image: "/projects/project-7.jpg",
     description:
       "Built a personal automation tool using Node.js, whatsapp-web.js, and node-cron to schedule and send birthday messages to WhatsApp groups. Implemented session handling, logging, environment configuration, and data persistence while exploring the technical and compliance limitations of WhatsApp automation. The project gave me practical experience building scheduled background processes and working with a third-party messaging platform.",
     stack: ["Node.js", "whatsapp-web.js", "node-cron", "Winston"],

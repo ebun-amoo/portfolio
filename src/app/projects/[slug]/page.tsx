@@ -40,16 +40,24 @@ export default async function ProjectDetailPage({
         ← All projects
       </Link>
 
-      <div className="aspect-video rounded-2xl bg-accent-dark/90 mt-6 mb-8" />
+      <div className="shadow-md group rounded-lg border border-border-subtle bg-accent-dark/90 hover:bg-accent-dark transition-colors my-5">
+        <div className="aspect-video rounded overflow-hidden bg-background/80 m-2">
+          <img
+            src={project.image}
+            alt=""
+            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+          />
+        </div>
+      </div>
 
-      <div className="flex items-center gap-3 mb-3">
+      <div className="flex-col flex md:flex-row gap-3 mb-3 md:items-center">
         <h1 className="font-display text-3xl font-semibold">
           {project.name}
         </h1>
 
-        <span className="text-xs rounded-full bg-accent-mauve/90 text-nav-foreground px-2.5 py-1">
+        <p className="w-fit text-xs rounded-full bg-accent-mauve/90 text-nav-foreground px-2.5 py-1">
           {project.status}
-        </span>
+        </p>
       </div>
 
       <p className="text-foreground/85 leading-relaxed mb-4 italic">
