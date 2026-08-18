@@ -328,7 +328,7 @@ export const projects: Project[] = [
     name: "Kàwé",
     status: "In progress",
     summary:
-      "An EdTech platform I'm developing to make learning more interactive, personalized, and accessible for children.",
+      "An EdTech platform I'm developing to make learning more interactive, personalized, and accessible for African children.",
     image: "/projects/project-6.png",
     description:
       "Kàwé is an EdTech product I'm currently developing around the idea that learning should be engaging as well as effective. I'm shaping the product experience around interactive quizzes, personalization, gamification, leaderboards, and rewards, with a focus on making quality learning experiences more accessible to children. The project brings together my interests in software, education, product design, and building technology with meaningful real-world impact.",
